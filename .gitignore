@@ -4,3 +4,4 @@ config.py
 *.jpg
 *.jpg.REMOVE_ME
 config/
+*.db
