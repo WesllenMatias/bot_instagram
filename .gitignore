@@ -1,0 +1,6 @@
+__pycache__
+.venv/
+config.py
+*.jpg
+*.jpg.REMOVE_ME
+config/
