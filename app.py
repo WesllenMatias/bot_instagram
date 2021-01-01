@@ -1,5 +1,5 @@
 from instabot import *
-import config.py
+import config
 from flask import Flask, request, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 
@@ -10,13 +10,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class Config(db.Model):
+class Contas(db.Model):
 
-    __tabname__='config'
+    __tabname__='contas'
 
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     conta = db.Column(db.String)
     usuario = db.Column(db.String)
-    passwd = db,Column(db.String)
+    passwd = db.Column(db.String)
 
     def __init__(self,conta,usuario,passwd):
         self.conta = conta
@@ -27,10 +28,11 @@ class Postagem():
 
     __tabname__='postagem'
 
+    id = db.Column(db.Integer,primary_key=True,autoincrement=True)
     data_post = db.Column(db.Date)
     hora_post = db.Column(db.Time)
     legenda = db.Column(db.String)
-    titulo = db.Column(db.Titulo)
+    titulo = db.Column(db.String)
 
     def __init__(self,data_post,hora_post,legenda,titulo):
         self.data_post = data_post
@@ -42,15 +44,15 @@ db. create_all()
 
 @app.route('/')
 def index():
-    return render_template('./web/index.html')
+    return render_template('index.html')
 
-@app.route('contas')
+@app.route('/contas')
 def contas():
-    return render_template('./web/contas.html')
+    return render_template('contas.html')
 
-@app.route('postagem')
+@app.route('/postagem')
 def postagem():
-    return render_template('./web/postagem.html')
+    return render_template('postagem.html')
 
 @app.route("/get_contas",methods=['GET','POST'])
 def get_contas():
