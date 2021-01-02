@@ -71,7 +71,7 @@ def get_contas():
 def get_postagem():
     if request.method == "POST":
         data_post = request.form.get("data_post")
-        hora_post = request.form.get("data_post")
+        hora_post = request.form.get("hora_post")
         legenda = request.form.get("legenda")
         titulo = request.form.get("titulo")
 

@@ -23,13 +23,22 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                One of three columns
+                
             </div>
             <div class="col-sm">
-                One of three columns
+                <form action="{{url_for('get_contas')}}" method="post">
+                    <label for="">Data:</label><br>
+                    <input type="date" name="data_post" id=""><br>
+                    <label for="">Time:</label><br>
+                    <input type="time" name="hora_post" id=""><br>
+                    <label for="">Legenda:</label><br>
+                    <input type="text" name="legenda" id=""><br>
+                    <label for="">Título:</label><br>
+                    <input type="text" name="titulo" id=""><br>
+                </form>
             </div>
             <div class="col-sm">
-                One of three columns
+                
             </div>
         </div>
     </div>
