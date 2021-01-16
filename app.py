@@ -24,13 +24,13 @@ class Contas(db.Model):
         self.usuario = usuario
         self.passwd = passwd
 
-class Postagem():
+class Postagem(db.Model):
 
     __tabname__='postagem'
 
     id = db.Column(db.Integer,primary_key=True,autoincrement=True)
-    data_post = db.Column(db.Date)
-    hora_post = db.Column(db.Time)
+    data_post = db.Column(db.String)
+    hora_post = db.Column(db.String)
     legenda = db.Column(db.String)
     titulo = db.Column(db.String)
 
