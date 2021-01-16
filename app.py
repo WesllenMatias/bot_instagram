@@ -40,7 +40,7 @@ class Postagem():
         self.legenda = legenda
         self.titulo = titulo
 
-db. create_all()
+db.create_all()
 
 @app.route('/')
 def index():
@@ -62,12 +62,13 @@ def get_contas():
         passwd = request.form.get("passwd")
 
         if conta and usuario and passwd:
-            g_contas = Config(conta,usuario,passwd)
-            db.session.add(g_conta)
+            g_contas = Contas(conta,usuario,passwd)
+            db.session.add(g_contas)
             db.session.commit()
     
     return redirect("/")
 
+@app.route("/get_postagem",methods=['GET','POST'])
 def get_postagem():
     if request.method == "POST":
         data_post = request.form.get("data_post")
